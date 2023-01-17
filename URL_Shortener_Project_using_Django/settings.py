@@ -1,6 +1,6 @@
 from pathlib import Path
 import os
-import django_heroku
+#import django_heroku
 import mimetypes
 
 mimetypes.add_type("text/css", ".css", True)
@@ -18,7 +18,7 @@ SECRET_KEY = 'faweoif2f90j2ionwjdcsnxwef12r0129cjhen1x'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = "True"
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -70,8 +70,12 @@ WSGI_APPLICATION = 'URL_Shortener_Project_using_Django.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'router',
+        'USER': 'postgres',
+        'PASSWORD': '123',
+        'HOST': 'localhost',
+        'PORT': '5432'
     }
 }
 
@@ -120,4 +124,7 @@ STATIC_URL = '/static/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-django_heroku.settings(locals())
+#django_heroku.settings(locals())
+
+LOGIN_REDIRECT_URL = "/shortened-urls/"
+LOGOUT_REDIRECT_URL = "/"

@@ -6,7 +6,14 @@
             {% csrf_token %}
             <fieldset class="form-group">
                 <h2 class="border-bottom mb-4">Create a Short URL</h2>
-                {{ form|crispy }}
+                <div> {{ form.original_url|as_crispy_field }} </div>
+                <div> {{ form.key|as_crispy_field }} </div>
+                <div hidden> {{ form.user|as_crispy_field }} </div>
+                <div hidden> {{ form.req_time }} </div>
+                <div hidden> {{ form.res_time }} </div>
+                <div hidden> {{ form.clicked|as_crispy_field }} </div>
+                <div hidden> {{ form.device|as_crispy_field }} </div>
+                <div hidden> {{ form.bench|as_crispy_field }} </div>
             </fieldset>
             <div class="form-group">
                 <button type="submit" class="btn btn-success">Submit</button>
