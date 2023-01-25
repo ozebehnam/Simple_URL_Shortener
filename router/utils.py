@@ -3,8 +3,6 @@ from django.conf import settings
 from random import choice
 
 from string import ascii_letters, digits
-
-# Try to get the value from the settings module
 SIZE = getattr(settings, "MAXIMUM_URL_CHARS", 7)
 
 AVAIABLE_CHARS = ascii_letters + digits
